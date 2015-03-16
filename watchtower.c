@@ -38,22 +38,20 @@ int main(int argc, char *argv[])
         return -1;
     }
     
-    inotifyFd = inotify_init();                 /* Create inotify instance */
+    inotifyFd = inotify_init();
     if (inotifyFd == -1) {
         printf("inotify_init");
         return -1;
     }
     
-    /* For each command-line argument, add a watch for all events */
-    
     for (j = 2; j < argc; j++) {
-        wd = inotify_add_watch(inotifyFd, argv[j], IN_MODIFY);
+        wd = inotify_add_watch(inotifyFd, argv[j], IN_MODIFY); // Watch each file from command line
         if (wd == -1) {
             printf("inotify_add_watch");
             return -1;
         }
         
-        printf("Watching %s using wd %d\n", argv[j], wd);
+        printf("Watching %s\n", argv[j]);
     }
     
     for (;;) {
