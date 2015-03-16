@@ -1,8 +1,8 @@
 Watchtower
 =========
 
-A simple watcher for your linux file system. The program will run a script
-when the specfied files change.
+Watchtower is a simple program that will run a script whenever one of the specified files are changed.
+
 
 ####Example
 	./watchtower ./reload-site *.html *.js app.css
